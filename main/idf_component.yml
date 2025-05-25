@@ -1,0 +1,4 @@
+dependencies:
+  lvgl/lvgl: 9.2.0
+  espressif/esp_lvgl_port: ^2.2.2
+  espressif/esp_lcd_gc9a01: ^2.0.0
