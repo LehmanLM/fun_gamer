@@ -35,7 +35,7 @@
 #include <nesinput.h>
 #include <osd.h>
 #include <stdint.h>
-#include "driver/i2s.h"
+#include "driver/i2s_std.h"
 #include "sdkconfig.h"
 #include <spi_lcd.h>
 
@@ -53,7 +53,7 @@ TimerHandle_t timer;
 //Seemingly, this will be called only once. Should call func with a freq of frequency,
 int osd_installtimer(int frequency, void *func, int funcsize, void *counter, int countersize)
 {
-    //printf("Tick CPU Freq â‰ˆ %d MHz\n", frequency);
+    //printf("Tick CPU Freq â‰? %d MHz\n", frequency);
     timer = xTimerCreate("nes", configTICK_RATE_HZ / frequency, pdTRUE, NULL, func);
     xTimerStart(timer, 0);
     return 0;
