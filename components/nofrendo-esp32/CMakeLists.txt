@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.12.4)
 
-# Æ¥Åä my_component ¸ùÄ¿Â¼ÏÂµÄËùÓÐ .c ÎÄ¼þ
-file(GLOB MY_COMPONENT_SRCS "*.c")
+# Æ¥ï¿½ï¿½ my_component ï¿½ï¿½Ä¿Â¼ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½ .c ï¿½Ä¼ï¿½
+file(GLOB MY_COMPONENT_SRCS "psxcontroller.c" "*.c")
 
-# ×¢²á×é¼þ
+# ×¢ï¿½ï¿½ï¿½ï¿½ï¿?
 idf_component_register(
     SRCS ${MY_COMPONENT_SRCS}
     INCLUDE_DIRS "."
-    REQUIRES esp_rom soc nofrendo
+    REQUIRES esp_rom soc nofrendo esp_driver_gpio esp_driver_i2s
 )
