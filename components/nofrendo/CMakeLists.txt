@@ -23,7 +23,7 @@ list(APPEND MY_COMPONENT_SRCS
 idf_component_register(
     SRCS ${MY_COMPONENT_SRCS}
     INCLUDE_DIRS "." "cpu" "libsnss" "mappers" "nes" "sndhrdw"
-    REQUIRES nofrendo-esp32
+    REQUIRES nofrendo-esp32s3
 )
 
 # ÃÌº”±‡“Î—°œÓ

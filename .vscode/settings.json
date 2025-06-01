@@ -28,6 +28,8 @@
         "freertos.h": "c",
         "task.h": "c",
         "gpio_struct.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "nvs_flash.h": "c",
+        "esp_partition.h": "c"
     }
 }

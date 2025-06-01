@@ -51,7 +51,7 @@
 #define LCD_TYPE_ILI 0
 #define LCD_TYPE_ST 1
 
-
+#if NLC
 static void spi_write_byte(const uint8_t data){
     SET_PERI_REG_BITS(SPI_MS_DLEN_REG(SPI_NUM), SPI_MS_DATA_BITLEN, 0x7, SPI_MS_DATA_BITLEN_S);
     WRITE_PERI_REG((SPI_W0_REG(SPI_NUM)), data);
@@ -423,8 +423,19 @@ void ili9341_init()
     ili_gpio_init();
     ILI9341_INITIAL ();
 }
+#else
+/* My st7789 driver code */
+void st7789_init()
+{
+    /*spi_matser_init ==> app_lcd_init in main*/
+    return;
+}
 
-
+void st7789_write_frame(const uint16_t x, const uint16_t y, const uint16_t width, const uint16_t height, const uint8_t *data[])
+{
+    return;
+}
+#endif
 
 
 

@@ -26,9 +26,15 @@ extern "C"
 {
 #endif
 
+#define NLC 0
+
+#if NLC
 void ili9341_write_frame(const uint16_t x, const uint16_t y, const uint16_t width, const uint16_t height, const uint8_t *data[]);
 void ili9341_init();
-
+#else
+void st7789_write_frame(const uint16_t x, const uint16_t y, const uint16_t width, const uint16_t height, const uint8_t *data[]);
+void st7789_init();
+#endif
 
 #ifdef __cplusplus
 }

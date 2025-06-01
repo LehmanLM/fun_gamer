@@ -260,7 +260,7 @@ static void videoTask(void *arg)
     {
         xQueueReceive(vidQueue, &bmp, portMAX_DELAY);//skip one frame to drop to 30
         xQueueReceive(vidQueue, &bmp, portMAX_DELAY);
-        ili9341_write_frame(x, y, DEFAULT_WIDTH, DEFAULT_HEIGHT, (const uint8_t **)bmp->line);
+        st7789_write_frame(x, y, DEFAULT_WIDTH, DEFAULT_HEIGHT, (const uint8_t **)bmp->line);
     }
 }
 
@@ -335,8 +335,8 @@ int osd_init()
     if (osd_init_sound())
         return -1;
 
-    ili9341_init();
-    ili9341_write_frame(0, 0, 320, 240, NULL);
+    st7789_init();
+    st7789_write_frame(0, 0, 320, 240, NULL);
     vidQueue = xQueueCreate(1, sizeof(bitmap_t *));
     xTaskCreatePinnedToCore(&videoTask, "videoTask", 2048, NULL, 5, NULL, 1);
     osd_initinput();

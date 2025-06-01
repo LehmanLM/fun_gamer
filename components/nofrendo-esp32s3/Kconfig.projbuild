@@ -130,7 +130,7 @@ config HW_LCD_BL_GPIO
 config SOUND_ENA
 	bool "Analog audio on GPIO26"
 	default n
-	help 
+	help
 		ESP32 will output 0-3.3V analog audio signal on GPIO26.
 
 
